@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React,{useState,useEffect} from 'react'
 import sanityClient from "../client"
 import {Link } from "react-router-dom"
@@ -60,16 +60,7 @@ function Post() {
       </section>
     </main>
   );
-=======
-import React from 'react'
 
-function Post() {
-    return (
-        <div>
-            
-        </div>
-    )
->>>>>>> eb80f0235798d19973a69408b8cf5d0fa6244eae
 }
 
 export default Post
