@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useEffect,useState} from 'react'
 import project from "../components/Project"
 import sanityClient from "../client"
@@ -50,6 +51,15 @@ function Project() {
         </section>
     </section>
 </main>
+=======
+import React from 'react'
+
+function Project() {
+    return (
+        <div>
+            
+        </div>
+>>>>>>> eb80f0235798d19973a69408b8cf5d0fa6244eae
     )
 }
 
