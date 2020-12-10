@@ -8,14 +8,6 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
-<<<<<<< HEAD
-) ;
-=======
-);
->>>>>>> eb80f0235798d19973a69408b8cf5d0fa6244eae
+  document.getElementById('root'))
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

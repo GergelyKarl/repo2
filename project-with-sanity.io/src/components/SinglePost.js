@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React,{useState,useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import sanityClient from "../client"
@@ -55,15 +55,6 @@ if (!singlePost) return <div>Loading...</div>
           </div>
          </article>
      </main>
-=======
-import React from 'react'
-
-function SinglePost() {
-    return (
-        <div>
-            
-        </div>
->>>>>>> eb80f0235798d19973a69408b8cf5d0fa6244eae
     )
 }
 
