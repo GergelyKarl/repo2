@@ -27,7 +27,7 @@ function NavBar() {
             to="/project"
             className="inline-flex flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-400"
           >
-            Projects
+             Projects
           </NavLink>
 
           <NavLink

@@ -1,4 +1,7 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .cursive {
   font-family: "Courier New", Courier, cursive;
@@ -11,5 +14,5 @@
 }
 
 .home-name {
-  font-size: 150px;
+  font-size: 151px;
 }
