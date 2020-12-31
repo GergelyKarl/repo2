@@ -7,7 +7,7 @@ import SupervisorAccountRoundedIcon from "@material-ui/icons/SupervisorAccountRo
 import BusinessCenterRoundedIcon from "@material-ui/icons/BusinessCenterRounded";
 import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 import NotificationsActiveRoundedIcon from "@material-ui/icons/NotificationsActiveRounded";
-import { Avatar } from "@material-ui/core";
+
 function Header() {
   return (
     <div className="header">
