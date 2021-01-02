@@ -22,7 +22,7 @@ function SideBar() {
           className="sidebar__avatar"
         />
         <h2>Karl Gergely </h2>
-        <h4>karl.ger@hotmail.com</h4>
+        <h4>karl@hotmail.com</h4>
       </div>
       <div className="sidebar__stats">
         <div className="sidebar__stat">
