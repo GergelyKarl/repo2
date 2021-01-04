@@ -5,9 +5,9 @@ import Header from "./Header";
 import SideBar from "./SideBar";
 import Feed from "./Feed";
 import { selectUser } from "./features/userSlice";
-import {useSelector} from "react-redux";
-import Login from "./Login"
-
+import { useSelector } from "react-redux";
+import Login from "./Login";
+//3:17
 function App() {
   const user = useSelector(selectUser);
 
