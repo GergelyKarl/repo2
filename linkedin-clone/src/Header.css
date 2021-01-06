@@ -1,18 +1,19 @@
 .header {
   position: sticky;
-  top: 0;
-  margin-top: 10px;
+  top: 0px;
+ 
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   border-bottom: 0.1px solid lightgray;
   padding-bottom: 10px;
-  width:100%;
+  width: 100%;
   z-index: 999;
- 
+  background-color: white;
 }
 
 .header__left {
   display: flex;
+  margin-top: 10px;
 }
 
 .header__left > img {
@@ -39,7 +40,7 @@
   width: 250px;
 }
 
-.header__right{
+.header__right {
   display: flex;
+  margin-top: 10px;
 }
-

@@ -7,8 +7,18 @@ import SupervisorAccountRoundedIcon from "@material-ui/icons/SupervisorAccountRo
 import BusinessCenterRoundedIcon from "@material-ui/icons/BusinessCenterRounded";
 import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 import NotificationsActiveRoundedIcon from "@material-ui/icons/NotificationsActiveRounded";
+import { useDispatch } from "react-redux";
+import { logout } from "./features/userSlice";
+import { auth } from "./firebase";
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const logoutApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <div className="header">
       <div className="header__left">
@@ -33,8 +43,8 @@ function Header() {
         <HeaderOption
           avatar="https://images.unsplash.com/photo-1592334873219-42ca023e48ce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=784&q=80"
           title="Me"
+          onClick={logoutApp}
         />
-
       </div>
     </div>
   );

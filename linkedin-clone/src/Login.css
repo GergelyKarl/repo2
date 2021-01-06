@@ -31,15 +31,15 @@
 .login > form > button {
   height: 40px;
   font-size: large;
-  background-color:rgb(37, 116, 169);
+  background-color: rgb(37, 116, 169);
   border-radius: 5px;
-  font-weight:400;
+  font-weight: 400;
+  cursor: pointer;
 }
 
-.login__register{
-  color:rgb(25, 181, 254);
+.login__register {
+  color: rgb(25, 181, 254);
   cursor: pointer;
-
 }
 
 .login > form > p {

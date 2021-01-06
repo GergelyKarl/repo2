@@ -8,30 +8,36 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import Post from "./Post";
 import { db } from "./firebase";
 import firebase from "firebase/app";
+import { selectUser } from "./features/userSlice";
+import { useSelector } from "react-redux";
+import FlipMove from "react-flip-move"
 
 const Feed = () => {
+  const user = useSelector(selectUser);
   const [input, setInput] = useState("");
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").orderBy("timestamp","desc").onSnapshot((snapshot) =>
-      setPosts(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
+      );
   }, []);
 
   const sendpost = (e) => {
     e.preventDefault();
 
     db.collection("posts").add({
-      name: "Gergo",
+      name: user.displayName,
       description: "this is a test",
       message: input,
-      photoURL: "",
+      photoURL: user.photoURL || "",
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -65,6 +71,7 @@ const Feed = () => {
           />
         </div>
       </div>
+      <FlipMove  >
       {posts.map(({ id, data: { name, description, message, photoURL } }) => (
         <Post
           key={id}
@@ -74,6 +81,7 @@ const Feed = () => {
           photoURL={photoURL}
         />
       ))}
+      </FlipMove>
     </div>
   );
 };
