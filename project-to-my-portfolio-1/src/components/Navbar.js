@@ -10,10 +10,10 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: red;
   z-index: 100;
   position: fixed;
   width: 100%;
+  background:transparent;
 `;
 
 const NavLink = css`
@@ -28,7 +28,6 @@ const NavLink = css`
 
 const Logo = styled(Link)`
   ${NavLink}
-  color: #fff;
   font-style: italic;
 `;
 const MenuBars = styled(FaBars)`
