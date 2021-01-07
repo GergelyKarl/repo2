@@ -72,8 +72,8 @@ const HeroContent = styled.div`
   color: #fff;
 
   h1 {
-    font-size: clamp(1rem, 8vw, 2rem);
-    font-weight: 400;
+    font-size: clamp(1rem, 8vw, 2.2rem);
+    font-weight: 600;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     text-align: left;
@@ -131,7 +131,7 @@ const Hero = ({ slides }) => {
     const nextSlide = () => {
       setCurrent(current => (current === length - 1 ? 0 : current + 1));
     }
-      timeout.current = setTimeout(nextSlide, 3000);
+      timeout.current = setTimeout(nextSlide, 10000);
 
       return function () {
         if (timeout.current) {
@@ -167,7 +167,7 @@ const Hero = ({ slides }) => {
         <HeroWrapper>
           {slides.map((slide, index) => {
             return (
-              <HeroSlide>
+              <HeroSlide key={index}>
                 {index === current && (
                   <HeroSlider>
                     <HeroImage src={slide.image} alt={slide.alt} />
