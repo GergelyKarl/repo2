@@ -75,4 +75,8 @@ const NavMenu = styled.div`
 const NavBtn = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width:768 ) {
+    display: none;
+  }
 `

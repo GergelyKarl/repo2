@@ -4,12 +4,12 @@ import { Link } from "gatsby"
 export const Button = styled(Link)`
   background: ${({ primary }) => (primary ? "#F2682E" : "#077BF1")};
   white-space: nowrap;
-  padding: ${({ big }) => (big ? "16px 40px" : "10 32px")};
+  padding: ${({ big }) => (big ? "16px 40px" : "10px 38px")};
   color: #fff;
   font-size: ${({ big }) => (big ? "20px" : "16px")};
   outline: none;
   border: none;
-  min-width: 100px;
+  min-width: 120px;
   cursor: pointer;
   text-decoration: none;
   transition: 0.3s !important;
