@@ -16,40 +16,71 @@ function App() {
       <Header />
       <div className="app__itemsContainer">
         <Item
-          title="asd"
-          desc="asdsa"
+          title="Best electronic cars in the world"
+          desc="Money-back guarantee"
           descLink="qweqe"
           backgroundImg={SolarPanels}
-          leftBtnLink=""
-          leftBtnText=""
-          rightBtnText=""
-          rightBtnLink=""
+          leftBtnLink="sd"
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
+          rightBtnLink="gg"
           twoButtons="true"
           first
         />
         <Item
-          title="asd"
-          desc="asdsa"
+          title="Model 3"
+          desc="Money-back guarantee"
           descLink=""
-          backgroundImg={SolarRoof}
+          backgroundImg={Model3}
           leftBtnLink=""
-          leftBtnText=""
-          rightBtnText=""
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
           rightBtnLink=""
           twoButtons="true"
-          
         />
         <Item
-          title="asd"
-          desc="asdsa"
+          title="Model X "
+          desc="Money-back guarantee"
           descLink=""
           backgroundImg={ModelX}
           leftBtnLink=""
-          leftBtnText=""
-          rightBtnText=""
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
           rightBtnLink=""
           twoButtons="true"
-          
+        />
+        <Item
+          title="Model Y"
+          desc="Money-back guarantee"
+          descLink=""
+          backgroundImg={ModelY}
+          leftBtnLink=""
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
+          rightBtnLink=""
+          twoButtons="true"
+        />
+        <Item
+          title="Solar Battery for New Roofs"
+          desc="Money-back guarantee"
+          descLink=""
+          backgroundImg={SolarRoof}
+          leftBtnLink=""
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
+          rightBtnLink=""
+          twoButtons="true"
+        />
+        <Item
+          title="Accessories"
+          desc="Money-back guarantee"
+          descLink=""
+          backgroundImg={Accessories}
+          leftBtnLink=""
+          leftBtnText="Learn More"
+          rightBtnText="Order Now"
+          rightBtnLink=""
+          twoButtons="true"
         />
       </div>
     </div>
