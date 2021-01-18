@@ -8,7 +8,7 @@ import { Button } from "./Buttons"
 const Header = () => {
   return (
     <Nav>
-      <NavLink to="/">EXPLORIX</NavLink>
+      <NavLink to="/">THE FIRM</NavLink>
 
       <Bars />
       <NavMenu>
@@ -19,7 +19,9 @@ const Header = () => {
         ))}
       </NavMenu>
       <NavBtn>
-        <Button big="true" round="true" primary="true" to="/trips">Book a flight</Button>
+        <Button big="true" round="true" primary="true" to="/trips">
+          Book a flight
+        </Button>
       </NavBtn>
     </Nav>
   )
@@ -68,7 +70,7 @@ const NavMenu = styled.div`
   align-items: center;
   margin-right: -48px;
 
-  @media screen and (max-width:768 ) {
+  @media screen and (max-width: 768) {
     display: none;
   }
 `
@@ -76,7 +78,7 @@ const NavBtn = styled.div`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width:768 ) {
+  @media screen and (max-width: 768) {
     display: none;
   }
 `

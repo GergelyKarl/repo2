@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { Button } from "./Buttons"
-import Video from "../assets/videos/vid.mp4"
 import Video2 from "../assets/videos/video.mp4"
+import { MdExpandMore } from "react-icons/md"
+import { Link } from "gatsby"
 
 const Hero = () => {
   return (
@@ -21,9 +22,19 @@ const Hero = () => {
         <HeroItems>
           <HeroH1>Choose a Destination</HeroH1>
           <HeroP>travel with us</HeroP>
-          <Button big="true" round="true" primary="true" to="/">
+          <Button
+            style={{ marginBottom: "3rem" }}
+            big="true"
+            round="true"
+            primary="true"
+            to="/"
+          >
             Travel Now
           </Button>
+          <Link to="#hook">
+            {"  "}
+            <MdExpandMore style={{ fontSize: 40, color: "#fff" }} />
+          </Link>
         </HeroItems>
       </HeroContent>
     </HeroContainer>

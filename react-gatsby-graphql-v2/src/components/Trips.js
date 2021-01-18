@@ -34,7 +34,7 @@ const Trips = ({ heading }) => {
       tripsArray.push(
         <ProductCard key={index}>
           <ProductImg
-            src={item.node.img.childImageSharp.fluid.src}
+            // src={item.node.img.childImageSharp.fluid.src}
             fluid={item.node.img.childImageSharp.fluid}
           />
           <ProductInfo>
@@ -46,7 +46,7 @@ const Trips = ({ heading }) => {
               to="/trips"
               primary="true"
               round="true"
-              style={{ position: "absolute", top: "420px",fontSize: "14px" }}
+              style={{ position: "absolute", top: "420px", fontSize: "14px" }}
             >
               {item.node.button}
             </Button>
@@ -60,7 +60,7 @@ const Trips = ({ heading }) => {
 
   return (
     <ProductsContainer>
-      <ProductsHeading>{heading}</ProductsHeading>
+      <ProductsHeading id="hook">{heading}</ProductsHeading>
       <ProductsWrapper>{getTrips(data)}</ProductsWrapper>
     </ProductsContainer>
   )
