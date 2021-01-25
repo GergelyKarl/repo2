@@ -10,6 +10,10 @@ import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import SendIcon from "@material-ui/icons/Send";
 import DescriptionIcon from "@material-ui/icons/Description";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import DuoIcon from '@material-ui/icons/Duo';
+import PersonIcon from '@material-ui/icons/Person';
+import PhoneIcon from '@material-ui/icons/Phone';
+import {IconButton} from "@material-ui/core"
 
 const Sidebar = () => {
   return (
@@ -33,6 +37,21 @@ const Sidebar = () => {
       <SidebarOption Icon={SendIcon} title="Sent" number={15} />
       <SidebarOption Icon={DescriptionIcon} title="Drafts" number={15} />
       <SidebarOption Icon={ExpandMoreIcon} title="More" />
+
+<div className="sidebar__footer">
+  <div className="sidebar__footerIcons">
+    <IconButton>
+      <PersonIcon />
+    </IconButton>
+    <IconButton>
+      <DuoIcon />
+    </IconButton>
+    <IconButton>
+      <PhoneIcon />
+    </IconButton>
+  </div>
+</div>
+
     </div>
   );
 };
