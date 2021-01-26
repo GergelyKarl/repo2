@@ -10,17 +10,20 @@ import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import SendIcon from "@material-ui/icons/Send";
 import DescriptionIcon from "@material-ui/icons/Description";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DuoIcon from '@material-ui/icons/Duo';
-import PersonIcon from '@material-ui/icons/Person';
-import PhoneIcon from '@material-ui/icons/Phone';
-import {IconButton} from "@material-ui/core"
-
+import DuoIcon from "@material-ui/icons/Duo";
+import PersonIcon from "@material-ui/icons/Person";
+import PhoneIcon from "@material-ui/icons/Phone";
+import { IconButton } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { openSendMessage } from "../features/mailSlice";
 const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sidebar">
       <Button
         startIcon={<AddIcon fontSize="large" />}
         className="sidebar__compose"
+        onClick={() => dispatch(openSendMessage)}
       >
         Compose
       </Button>
@@ -38,20 +41,19 @@ const Sidebar = () => {
       <SidebarOption Icon={DescriptionIcon} title="Drafts" number={15} />
       <SidebarOption Icon={ExpandMoreIcon} title="More" />
 
-<div className="sidebar__footer">
-  <div className="sidebar__footerIcons">
-    <IconButton>
-      <PersonIcon />
-    </IconButton>
-    <IconButton>
-      <DuoIcon />
-    </IconButton>
-    <IconButton>
-      <PhoneIcon />
-    </IconButton>
-  </div>
-</div>
-
+      <div className="sidebar__footer">
+        <div className="sidebar__footerIcons">
+          <IconButton>
+            <PersonIcon />
+          </IconButton>
+          <IconButton>
+            <DuoIcon />
+          </IconButton>
+          <IconButton>
+            <PhoneIcon />
+          </IconButton>
+        </div>
+      </div>
     </div>
   );
 };
