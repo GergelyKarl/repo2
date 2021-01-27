@@ -9,7 +9,7 @@ import SendMail from "./components/SendMail";
 import { useSelector } from "react-redux";
 import { selectSendMessageIsOpen } from "./features/mailSlice";
 
-//2.03
+//3.0
 function App() {
   const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
 
@@ -29,7 +29,7 @@ function App() {
             </Route>
           </Switch>
         </div>
-       {sendMessageIsOpen && <SendMail />}
+        {sendMessageIsOpen && <SendMail />}
       </div>
     </Router>
   );

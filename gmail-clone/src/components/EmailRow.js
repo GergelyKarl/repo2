@@ -5,11 +5,24 @@ import LabelOutlinedIcon from "@material-ui/icons/LabelOutlined";
 import { IconButton } from "@material-ui/core";
 import { Checkbox } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-const EmailRow = ({ title, subject, description, time, id }) => {
+import {useDispatch} from "react-redux"
+import { selectMail } from "../features/mailSlice";
+const EmailRow = ({ title,subject, description, time, id }) => {
   const history = useHistory();
+const dispatch = useDispatch()
+
+const openMail=()=>{
+
+  dispatch(selectMail({
+    title, subject, description, time, id,
+   
+  }))
+
+  history.push("/mail")
+}
 
   return (
-    <div onClick={() => history.push("/mail")} className="emailRow">
+    <div onClick={openMail} className="emailRow">
       <div className="emailRow__options">
         <Checkbox />
         <IconButton>

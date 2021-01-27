@@ -23,7 +23,9 @@ const Sidebar = () => {
       <Button
         startIcon={<AddIcon fontSize="large" />}
         className="sidebar__compose"
-        onClick={() => dispatch(openSendMessage)}
+        onClick={() => {
+          dispatch(openSendMessage());
+        }}
       >
         Compose
       </Button>
