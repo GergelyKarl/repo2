@@ -1,0 +1,144 @@
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo__container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo__img {
+  height: 180px;
+}
+
+.logo__container > h1 {
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.createMonster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.createMonster > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.createMonster__select {
+  display: flex;
+  align-items: center;
+}
+
+.createMonster__select > img {
+  height: 50px;
+  padding: 0 10px;
+}
+.createMonster__select :nth-child(2) {
+  height: 100px;
+  padding: 0 10px;
+}
+
+.createMonster__picture {
+  height: 100px;
+  width: 100px;
+  object-fit: fill;
+}
+
+.createMonster__stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createMonster__stats > input {
+  width: 8%;
+  margin: 30px;
+  height: 43px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.createMonster__stats > img {
+  height: 45px;
+}
+
+.createMonster__input > input {
+  width: 300px;
+  height: 25px;
+  outline-width: 0;
+border: none;
+background-color: antiquewhite;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.createMonster__button {
+  text-align: center;
+}
+
+.createMonster__button > button {
+  height: 30px;
+  width: 60px;
+  background-color: #abe9cd;
+  background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+  border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline-width: 0;
+  font-weight: 600;
+  margin: 30px 0;
+}
+
+.createMonster__search {
+  margin: 35px 0;
+ 
+}
+
+.createMonster__search > form > input{
+  width: 430px;
+  height: 30px;
+}
+
+.monsterList {
+  display: flex;
+  height: 150px;
+  align-items: center;
+  width: 581px;
+  justify-content: space-evenly;
+}
+
+.monsterList img {
+  height: 60px;
+  object-fit: scale-down;
+}
+
+.monsterList__stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.monsterList__pics {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+}
+
+.monsterList__pics > img {
+  height: 30px;
+  object-fit: contain;
+}
