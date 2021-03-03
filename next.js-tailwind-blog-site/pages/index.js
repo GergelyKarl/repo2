@@ -5,24 +5,32 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Blog with next.js</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>My Blog</h1>
+        <h1 className="my-2 font-bold text-2xl">My Blog</h1>
       </main>
 
       <div>
         {blogPosts.map((item) => (
-          <div key={item.slug}>
-            <Link href={`blog/${item.slug}`}>
-              <a> {item.title}</a>
-            </Link>
-            <div>{item.date.slice(0, 10)}</div>
-            <div>{item.content}</div>
-          </div>
+          <BlogListItem className=" border-solid border-black my-8 p-5" key={item.slug} {...item} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+function BlogListItem({ slug, title, date, content }) {
+  return (
+    <div>
+      <div className=" border-dashed border border-black my-8 p-5">
+        <Link href={`blog/${slug}`}>
+          <a className="uppercase font-bold "> {title}</a>
+        </Link>
+        <div className="my-1 text-sm text-gray-500">{date.slice(0, 10)}</div>
+        <div className="font-sans ">{content}</div>
       </div>
     </div>
   );
