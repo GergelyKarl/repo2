@@ -1,6 +1,8 @@
 import Head from "next/head";
+import CoinList from "../components/CoinList";
+import SearchBar from "../components/SearchBar";
 
-export default function Home() {
+export default function Home({ filteredCoins }) {
   return (
     <div>
       <Head>
@@ -9,6 +11,7 @@ export default function Home() {
       </Head>
 
       <SearchBar type="text" placeholder="Gépelj a szűkítéshez..." />
+      <CoinList filteredCoins={filteredCoins} />
     </div>
   );
 }
