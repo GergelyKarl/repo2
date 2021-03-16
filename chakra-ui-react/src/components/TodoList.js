@@ -9,13 +9,8 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { FaTrash } from "react-icons/fa";
-const TodoList = () => {
-  const todos = [
-    { id: 1, body: "qweqwe" },
-    { id: 2, body: "bbbbb" },
-    { id: 3, body: "vvvvv" },
-  ];
 
+const TodoList = ({todos}) => {
   return (
     <VStack
       divider={<StackDivider />}
