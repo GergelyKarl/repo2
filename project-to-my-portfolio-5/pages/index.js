@@ -1,8 +1,21 @@
 import Head from "next/head";
 import CoinList from "../components/CoinList";
 import SearchBar from "../components/SearchBar";
+import { useState } from "react";
 
 export default function Home({ filteredCoins }) {
+  const [search, setSearch] = useState("");
+
+  const allCoins = filteredCoins.filter((coin) => {
+    return coin.name.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    setSearch(e.target.value.toLowerCase());
+  };
+
   return (
     <div>
       <Head>
@@ -10,8 +23,13 @@ export default function Home({ filteredCoins }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SearchBar type="text" placeholder="Gépelj a szűkítéshez..." />
-      <CoinList filteredCoins={filteredCoins} />
+      <h1>Kripto-Kereső</h1>
+      <SearchBar
+        type="text"
+        placeholder="Gépelj a szűkítéshez..."
+        onChange={handleChange}
+      />
+      <CoinList filteredCoins={allCoins} />
     </div>
   );
 }

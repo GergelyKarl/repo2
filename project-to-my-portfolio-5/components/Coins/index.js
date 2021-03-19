@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./Coins.module.css";
 
-const Coins = ({ name, price, symbol, marketcap, image, priceChange }) => {
+const Coins = ({
+  name,
+  price,
+  id,
+  symbol,
+  marketcap,
+  volume,
+  image,
+  priceChange,
+}) => {
   return (
     <div className={styles.coin_container}>
       <div className={styles.coin_row}>
@@ -14,6 +23,7 @@ const Coins = ({ name, price, symbol, marketcap, image, priceChange }) => {
           <div className={styles.coin_price}>
             {price.toFixed().toLocaleString("hu-HU")} HUF
           </div>
+          {/* <p className={styles.coin_volume}>${volume.toLocaleString("hu-HU")}</p> */}
 
           {priceChange < 0 ? (
             <p className={styles.coin_percent_red}>{priceChange.toFixed(2)}%</p>
