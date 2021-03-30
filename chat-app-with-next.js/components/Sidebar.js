@@ -3,12 +3,18 @@ import { Avatar, Button, IconButton } from "@material-ui/core";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
+import * as EmailValidator from "email-validator"
+
 const Sidebar = () => {
   const createChat = () => {
     const input = prompt("asd");
 
     if (!input) return;
-    //59
+   
+
+    if (EmailValidator.validate(input)) {
+      
+    }
   };
 
   return (
