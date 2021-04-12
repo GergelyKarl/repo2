@@ -7,21 +7,22 @@ import {
 } from "@heroicons/react/solid";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {useRef} from "react"
+import { useRef } from "react";
+import Footer from "../components/Footer";
 export default function Home() {
   const searcInputRef = useRef(null);
+  const router = useRouter();
   const search = (e) => {
-    const router = useRouter();
     e.preventDefault();
     const term = searcInputRef.current.value;
-
+console.log(term);
     if (!term) return;
 
     router.push(`/search?term=${term}`);
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-screen">
       <Head>
         <title>Google</title>
         <link rel="icon" href="/favicon.ico" />
@@ -42,7 +43,7 @@ export default function Home() {
         </div>
       </header>
 
-      <form className="flex flex-col items-center mt-44 flex-grow ">
+      <form className="flex flex-col items-center mt-44 flex-grow w-4/5 ">
         <Image
           src="https://www.google.hu/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
           height={100}
@@ -58,10 +59,12 @@ export default function Home() {
           <MicrophoneIcon className="h-5" />
         </div>
         <div className="flex flex-col w-1/2 space-y-2 justify-center mt-8 sm:space-y-0 sm:flex-row sm:space-x-4">
-          <button className="btn">Google Serch</button>
+          <button className="btn" onClick={search}>Google Serch</button>
           <button className="btn">I'm Feeling lucky</button>
         </div>
       </form>
+
+      <Footer />
     </div>
   );
 }
