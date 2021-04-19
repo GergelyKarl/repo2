@@ -9,9 +9,8 @@ import {
 } from "@heroicons/react/outline";
 
 const HeaderOptions = () => {
-  
   return (
-    <div className="flex w-full text-gray-700 justify-evenly text-sm lg:text-base lg:justify-start lg:space-x-36 pl-52 lg:border-b-[1px]" >
+    <div className="flex w-full text-gray-700 justify-evenly text-sm lg:text-base lg:justify-start lg:space-x-36 pl-52 lg:border-b-[1px]">
       <div className="flex space-x-6">
         <HeaderOption title="Összes" selected Icon={SearchIcon} />
         <HeaderOption title="Képek" Icon={PhotographIcon} />

@@ -1,4 +1,4 @@
-const Avatar = ({ url,className }) => {
+const Avatar = ({ url, className }) => {
   return (
     <img
       loading="lazy"

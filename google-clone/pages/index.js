@@ -15,7 +15,7 @@ export default function Home() {
   const search = (e) => {
     e.preventDefault();
     const term = searcInputRef.current.value;
-console.log(term);
+    console.log(term);
     if (!term) return;
 
     router.push(`/search?term=${term}`);
@@ -30,12 +30,12 @@ console.log(term);
 
       <header className="flex w-full p-5 justify-between text-sm text-gray-700">
         <div className="flex space-x-4 items-center">
-          <p className="link">About</p>
-          <p className="link">Store</p>
+          <p className="link"></p>
+          <p className="link"></p>
         </div>
         <div className=" flex space-x-4 items-center">
           <p className="link">Gmail</p>
-          <p className="link">Images</p>
+          <p className="link">Képek</p>
 
           <ViewGridIcon className="h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer" />
 
@@ -59,8 +59,10 @@ console.log(term);
           <MicrophoneIcon className="h-5" />
         </div>
         <div className="flex flex-col w-1/2 space-y-2 justify-center mt-8 sm:space-y-0 sm:flex-row sm:space-x-4">
-          <button className="btn" onClick={search}>Google Serch</button>
-          <button className="btn">I'm Feeling lucky</button>
+          <button className="btn" onClick={search}>
+            Google Keresés
+          </button>
+          <button className="btn">Jó napom van</button>
         </div>
       </form>
 
