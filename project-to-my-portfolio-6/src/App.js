@@ -45,6 +45,24 @@ function App() {
           </RightMenu>
         </MenuWrapper>
       </Nav>
+      <Hero id="home">
+        <HeroContainer>
+          <HeroRow>
+            <HeroItem>
+              <HeroSlogen>
+                <h1>Fresfood</h1>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Voluptate nihil corrupti fuga. Voluptates nemo quos veritatis
+                  libero nihil ipsam, amet explicabo! Dignissimos, nemo quam
+                  facilis consequatur officiis error rem soluta.
+                </p>
+                <button>Order Now</button>
+              </HeroSlogen>
+            </HeroItem>
+          </HeroRow>
+        </HeroContainer>
+      </Hero>
     </div>
   );
 }
@@ -110,4 +128,52 @@ const Nav = styled.div`
   z-index: 99;
   background-color: #f0f3f7;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`;
+
+const Hero = styled.section`
+  ${alignItemsCenter};
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(${bgImage});
+`;
+
+const HeroContainer = styled.div``;
+const HeroRow = styled.div``;
+const HeroItem = styled.div`
+width:50%;
+padding:1rem;
+@media (max-width: 600px) {
+   width:33%;
+  }
+
+`;
+const HeroSlogen = styled.div`
+ h1{
+   font-size:7rem;
+   color:${root.primarycolor}
+ }
+
+ button{
+padding:1rem 5rem;
+outline:none;
+border:none;
+background-color:${root.backgroundcolor};
+border: 0.125rem solid ${root.primarycolor};
+border-radius:2rem;
+color:${root.primarycolor};
+margin:3rem 0;
+cursor:pointer;
+font-weight:600;
+transition:0.5s ease-in-out;
+
+ }
+
+ button:hover{
+   background-color:${root.primarycolor};
+   color:${root.backgroundcolor};
+ }
+
 `;
