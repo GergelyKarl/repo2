@@ -1,6 +1,7 @@
 import "./App.css";
 import styled, { css } from "styled-components";
 import bgImage from "./images/bg.jpg";
+import pizzaImage from "./images/pizz.jpg";
 
 const root = {
   primarycolor: "#0F9D58",
@@ -63,6 +64,28 @@ function App() {
           </HeroRow>
         </HeroContainer>
       </Hero>
+      <About>
+        <AboutContainer>
+          <AboutArea>
+            <AboutMiddle>
+              <AboutPic src={pizzaImage} />
+            </AboutMiddle>
+            <AboutTextContainer>
+              <AboutText>
+                <h3>
+                  <span>We</span> create asdasd...
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+                  quas fugiat ut velit omnis, quis laudantium dignissimos
+                  praesentium ratione. Unde debitis eveniet dolores consequuntur
+                  eius dolorum, suscipit quod nisi enim.
+                </p>
+              </AboutText>
+            </AboutTextContainer>
+          </AboutArea>
+        </AboutContainer>
+      </About>
     </div>
   );
 }
@@ -140,40 +163,86 @@ const Hero = styled.section`
   background-image: url(${bgImage});
 `;
 
-const HeroContainer = styled.div``;
+const HeroContainer = styled.div`
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+`;
 const HeroRow = styled.div``;
 const HeroItem = styled.div`
-width:50%;
-padding:1rem;
-@media (max-width: 600px) {
-   width:33%;
+  width: 50%;
+  padding: 1rem;
+  @media (max-width: 600px) {
+    width: 33%;
   }
-
 `;
 const HeroSlogen = styled.div`
- h1{
-   font-size:7rem;
-   color:${root.primarycolor}
- }
+  h1 {
+    font-size: 7rem;
+    color: ${root.primarycolor};
+  }
 
- button{
-padding:1rem 5rem;
-outline:none;
-border:none;
-background-color:${root.backgroundcolor};
-border: 0.125rem solid ${root.primarycolor};
-border-radius:2rem;
-color:${root.primarycolor};
-margin:3rem 0;
-cursor:pointer;
-font-weight:600;
-transition:0.5s ease-in-out;
+  button {
+    padding: 1rem 5rem;
+    outline: none;
+    border: none;
+    background-color: ${root.backgroundcolor};
+    border: 0.125rem solid ${root.primarycolor};
+    border-radius: 2rem;
+    color: ${root.primarycolor};
+    margin: 3rem 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease-in-out;
+  }
 
- }
+  button:hover {
+    background-color: ${root.primarycolor};
+    color: ${root.backgroundcolor};
+  }
+`;
 
- button:hover{
-   background-color:${root.primarycolor};
-   color:${root.backgroundcolor};
- }
+const About = styled.div`
+  ${alignItemsCenter};
+  height: 100vh;
+`;
+const AboutContainer = styled.div`
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+`;
+const AboutArea = styled.div`
+  display: flex;
+`;
+const AboutMiddle = styled.div`
+  width: 58.33%;
+`;
+const AboutPic = styled.img`
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 18px 44px,
+    rgba(17, 17, 26, 0.1) 0px 36px 76px, rgba(17, 17, 26, 0.1) 0px 44px 80px;
+`;
+const AboutTextContainer = styled.div`
+  ${alignItemsCenter};
+  text-align: center;
 
+  width: 42%;
+`;
+const AboutText = styled.div`
+  padding: 4rem;
+  background-color: ${root.white};
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  transform: translateX(-10rem);
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: ${root.gray};
+  }
+
+  span {
+    color: blue;
+  }
 `;
