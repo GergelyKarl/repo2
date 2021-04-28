@@ -2,6 +2,11 @@ import "./App.css";
 import styled, { css } from "styled-components";
 import bgImage from "./images/bg.jpg";
 import pizzaImage from "./images/pizz.jpg";
+import pizza2 from "./images/pizza2.jpg";
+import veggie from "./images/veggie.jpg"
+
+import FoodItem from "./components/FoodItem";
+
 
 const root = {
   primarycolor: "#0F9D58",
@@ -15,6 +20,12 @@ const alignItemsCenter = css`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const containerCss = css`
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
 `;
 
 function App() {
@@ -86,6 +97,27 @@ function App() {
           </AboutArea>
         </AboutContainer>
       </About>
+      <Food>
+        <FoodContainer>
+          <FoodMenu>
+            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              architecto aliquam reprehenderit temporibus officiis ullam.
+            </p>
+          </FoodMenu>
+          <FoodCategory>
+            <button>all</button>
+            <button>lorem</button>
+            <button>ipsum</button>
+            <button>dolor</button>
+            <button>sit</button>
+          </FoodCategory>
+          <FoodItemWrap>
+            <FoodItem img={veggie} />
+          </FoodItemWrap>
+        </FoodContainer>
+      </Food>
     </div>
   );
 }
@@ -245,4 +277,60 @@ const AboutText = styled.div`
   span {
     color: blue;
   }
+`;
+
+const Food = styled.div`
+  ${alignItemsCenter};
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: url(${pizza2});
+  height: 100vh;
+`;
+const FoodContainer = styled.div`
+  ${containerCss};
+`;
+const FoodMenu = styled.div`
+  padding: 4rem;
+  background-color: ${root.white};
+  border-radius: 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 8px 0px;
+
+  h1 {
+    color: ${root.gray};
+  }
+
+  p {
+    margin: 2rem 0;
+  }
+`;
+const FoodCategory = styled.div`
+  ${alignItemsCenter};
+  margin-top: 2rem;
+
+  button {
+    padding: 0.5rem 2.5rem;
+    margin: 0 1rem;
+    outline: none;
+    border: 1px solid ${root.primarycolor};
+    background-color: transparent;
+    color: ${root.primarycolor};
+    font-weight: 600;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: ${root.primarycolor};
+      color: ${root.white};
+    }
+  }
+`;
+const FoodItemWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 3rem;
 `;
