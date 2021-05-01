@@ -1,12 +1,16 @@
 import "./App.css";
+import React,{useState,useEffect} from "react"
 import styled, { css } from "styled-components";
 import bgImage from "./images/bg.jpg";
 import pizzaImage from "./images/pizz.jpg";
 import pizza2 from "./images/pizza2.jpg";
-import veggie from "./images/veggie.jpg"
-
+import veggie from "./images/veggie.jpg";
+import ReviewItem from "./components/ReviewItems";
 import FoodItem from "./components/FoodItem";
-
+import person1 from "./images/review1.jpg";
+import person2 from "./images/review2.jpg";
+import person3 from "./images/review3.jpg";
+import footerbg from "./images/footerbg.jpg";
 
 const root = {
   primarycolor: "#0F9D58",
@@ -28,10 +32,30 @@ const containerCss = css`
   margin: 0 auto;
 `;
 
+
+
+
+
 function App() {
+
+const [bckBtn, setBckBtn] = useState(false)
+
+const changeNav = () => {
+  if (window.scrollY >= 700) {
+    setBckBtn(true);
+  } else {
+    setBckBtn(false);
+  }
+};
+
+useEffect(() => {
+  window.addEventListener("scroll", changeNav);
+}, []);
+
+
   return (
     <div className="App">
-      <Nav>
+      <Nav id="home">
         <MenuWrapper>
           <a href="#home">
             <Logo>FRESFOOD</Logo>
@@ -105,24 +129,87 @@ function App() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
               architecto aliquam reprehenderit temporibus officiis ullam.
             </p>
+            <FoodCategory>
+              <button>all</button>
+              <button>lorem</button>
+              <button>ipsum</button>
+              <button>dolor</button>
+              <button>sit</button>
+            </FoodCategory>
+            <FoodItemWrap>
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+            </FoodItemWrap>
           </FoodMenu>
-          <FoodCategory>
-            <button>all</button>
-            <button>lorem</button>
-            <button>ipsum</button>
-            <button>dolor</button>
-            <button>sit</button>
-          </FoodCategory>
-          <FoodItemWrap>
-            <FoodItem img={veggie} />
-          </FoodItemWrap>
         </FoodContainer>
       </Food>
+      <Review>
+        <ReviewContainer>
+          <ReviewSection>
+            <ReviewItem image={person2} name="lorem" />
+            <ReviewItem image={person1} name="ipsum" />
+            <ReviewItem image={person3} name="dolor" />
+          </ReviewSection>
+        </ReviewContainer>
+      </Review>
+      <Footer>
+        <FooterContainer>
+          <FooterRow>
+            <FooterSection1>
+              <h1>Pizza</h1>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde,
+                enim! Praesentium ipsam reprehenderit, id libero dolores fugit
+                laborum ducimus provident!
+              </p>
+              <p>Email:lorem@ipsum.hu</p>
+              <p>Tel:0690478545</p>
+              <p>Website:pizza.hu</p>
+            </FooterSection1>
+            <FooterSection2>
+              <p>
+                <a href="#">About</a>
+              </p>
+              <p>
+                <a href="#">Reviews</a>
+              </p>
+              <p>
+                <a href="#">Menu</a>
+              </p>
+              <p>
+                <a href="#">Location</a>
+              </p>
+            </FooterSection2>
+            <FooterSection3>
+              <h1>Media & kontakt</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptates perspiciatis distinctio minima repellendus ab magnam.
+              </p>
+              <InputGroup>
+                <input type="text" placeholder="Enter your email" />
+                <button>Send</button>
+              </InputGroup>
+            </FooterSection3>
+          </FooterRow>
+        </FooterContainer>
+        <BackToHomeButton href="#home" style={{display:bckBtn ? "flex" : "none"}}>
+        <i className="bx bxs-to-top"></i>
+      </BackToHomeButton >
+      </Footer>
+   
     </div>
   );
 }
 
 export default App;
+
+
 
 const MenuWrapper = styled.div`
   max-width: 1366px;
@@ -287,7 +374,6 @@ const Food = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background: url(${pizza2});
-  height: 100vh;
 `;
 const FoodContainer = styled.div`
   ${containerCss};
@@ -333,4 +419,96 @@ const FoodItemWrap = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 3rem;
+`;
+
+const Review = styled.section`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+`;
+const ReviewContainer = styled.div`
+  ${containerCss};
+`;
+const ReviewSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 5rem;
+`;
+
+const Footer = styled.section`
+  background-image: url(${footerbg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
+  color: ${root.white};
+  h1 {
+    color: ${root.primarycolor};
+  }
+  align-items: center;
+  display: flex;
+`;
+const FooterContainer = styled.div`
+  ${containerCss};
+`;
+const FooterRow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+`;
+const FooterSection1 = styled.div`
+  width: 50%;
+  margin-right: 2rem;
+`;
+const FooterSection2 = styled.div`
+  width: 14%;
+  margin-top: 1rem;
+`;
+const FooterSection3 = styled.div`
+  width: 33.33%;
+`;
+
+const InputGroup = styled.div`
+  padding: 1rem;
+  border: 0.125rem solid ${root.primarycolor};
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  input {
+    flex: auto;
+    outline: none;
+    border: none;
+    color: ${root.primarycolor};
+    background-color: transparent;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    background-color: ${root.primarycolor};
+    border-radius: 1rem;
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+  }
+`;
+
+const BackToHomeButton = styled.a`
+
+position: fixed;
+    bottom: 70px;
+    right: 70px;
+    border-radius: 10px;
+    background-color: ${root.primarycolor};
+    color: ${root.white};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    padding: .5rem;
+    z-index: 99;
+    
+ 
+  
 `;

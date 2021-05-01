@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const FoodItem = ({ img }) => {
+const root = {
+  primarycolor: "#0F9D58",
+  backgroundcolor: "#f0f3f7",
+  secondarycolor: "#9da2ad",
+  gray: "#7a7a7b",
+  white: "#ffffff",
+};
+
+const FoodItem = ({ img ,price,name}) => {
   return (
     <FoodItemContainer>
       <FoodItemWrapper>
@@ -9,12 +17,14 @@ const FoodItem = ({ img }) => {
           <ItemImg src={img} />
         </ImgHolder>
         <ItemInfo>
-          <h3>fggf</h3>
-          <span></span>
+       <ItemText>
+       <h3>{name}</h3>
+          <span>{price}</span>
+       </ItemText>
+          <ItemCartBtn>
+            <i className="bx bx-cart-alt"></i>
+          </ItemCartBtn>
         </ItemInfo>
-        <ItemCartBtn>
-          <i className="bx bx-cart-alt"></i>
-        </ItemCartBtn>
       </FoodItemWrapper>
     </FoodItemContainer>
   );
@@ -24,7 +34,7 @@ export default FoodItem;
 
 const FoodItemContainer = styled.div`
   width: 25%;
-  height: 30rem;
+  height: 25rem;
   padding: 1rem;
 `;
 const FoodItemWrapper = styled.div`
@@ -38,17 +48,6 @@ const FoodItemWrapper = styled.div`
   }
 `;
 const ItemImg = styled.img`
-  height: 280px;
-  width:253px;
-
-  position: absolute;
-  overflow: hidden;
-  border-radius: 2rem;
-  object-fit:contain;
-`;
-const ItemInfo = styled.div``;
-const ItemCartBtn = styled.div``;
-const ImgHolder = styled.div`
   position: relative;
   top: 0;
   left: 0;
@@ -59,4 +58,54 @@ const ImgHolder = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: 1.1s ease-in-out;
+  &:hover {
+    transform: scale(2) rotate(360deg);
+  }
+`;
+const ItemInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 1rem;
+
+  h3 {
+    color: #7a7a7b;
+  }
+
+  &:nth-child(1) {
+    text-align: left;
+  }
+`;
+
+const ItemText=styled.div`
+display:flex;
+flex-direction:column;
+`
+
+const ItemCartBtn = styled.div`
+  i {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${root.primarycolor};
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      background-color: ${root.primarycolor};
+      border-radius: 1rem;
+      color: ${root.white};
+    }
+  }
+`;
+const ImgHolder = styled.div`
+  height: 60%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
 `;

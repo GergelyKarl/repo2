@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -12,11 +13,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 body,
 html {
-  background-color: var(--background-color);
+  background-color: #f0f3f7;
   scroll-behavior: smooth;
   position: relative;
   overflow-x: hidden;
