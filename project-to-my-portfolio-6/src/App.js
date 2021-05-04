@@ -1,19 +1,24 @@
 import "./App.css";
-import React,{useState,useEffect} from "react"
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
+import { motion } from "framer-motion";
+import FoodItem from "./components/FoodItem";
+import ReviewTabs from "./components/ReviewTabs";
 import bgImage from "./images/bg.jpg";
 import pizzaImage from "./images/pizz.jpg";
+import pizza1 from "./images/pizza1.jpg";
 import pizza2 from "./images/pizza2.jpg";
-import veggie from "./images/veggie.jpg";
-import ReviewItem from "./components/ReviewItems";
-import FoodItem from "./components/FoodItem";
+import pizza3 from "./images/pizza3.jpg";
+import pizza4 from "./images/pizza4.jpg";
+import pizza5 from "./images/pizza5.jpg";
 import person1 from "./images/review1.jpg";
 import person2 from "./images/review2.jpg";
 import person3 from "./images/review3.jpg";
 import footerbg from "./images/footerbg.jpg";
 
 const root = {
-  primarycolor: "#0F9D58",
+  primarycolor: "#d64541",
   backgroundcolor: "#f0f3f7",
   secondarycolor: "#9da2ad",
   gray: "#7a7a7b",
@@ -32,33 +37,31 @@ const containerCss = css`
   margin: 0 auto;
 `;
 
-
-
-
-
 function App() {
+  const [backBtn, setBackBtn] = useState(false);
 
-const [bckBtn, setBckBtn] = useState(false)
+  const changeNav = () => {
+    if (window.scrollY >= 700) {
+      setBackBtn(true);
+    } else {
+      setBackBtn(false);
+    }
+  };
 
-const changeNav = () => {
-  if (window.scrollY >= 700) {
-    setBckBtn(true);
-  } else {
-    setBckBtn(false);
-  }
-};
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
 
-useEffect(() => {
-  window.addEventListener("scroll", changeNav);
-}, []);
-
+  const toTheTop = () => {
+    scroll.scrollToTop();
+  };
 
   return (
     <div className="App">
-      <Nav id="home">
+      <Nav>
         <MenuWrapper>
           <a href="#home">
-            <Logo>FRESFOOD</Logo>
+            <Logo>Pizzas</Logo>
           </a>
           <Menu>
             <a href="#home">
@@ -70,7 +73,7 @@ useEffect(() => {
             <a href="#menu">
               <MenuItem>Menu</MenuItem>
             </a>
-            <a href="#testimonals">
+            <a href="#review">
               <MenuItem>Testimonals</MenuItem>
             </a>
           </Menu>
@@ -86,29 +89,50 @@ useEffect(() => {
           <HeroRow>
             <HeroItem>
               <HeroSlogen>
-                <h1>Fresfood</h1>
-                <p>
+                <motion.h1
+                  initial={{ x: "-60vw" }}
+                  animate={{ x: "0vw" }}
+                  transition={{ delay: 0, duration: 2 }}
+                >
+                  Pizzas
+                </motion.h1>
+                <motion.p
+                  initial={{ x: "60vw" }}
+                  animate={{ x: "0vw" }}
+                  transition={{ delay: 0, duration: 2 }}
+                >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Voluptate nihil corrupti fuga. Voluptates nemo quos veritatis
                   libero nihil ipsam, amet explicabo! Dignissimos, nemo quam
                   facilis consequatur officiis error rem soluta.
-                </p>
+                </motion.p>
                 <button>Order Now</button>
               </HeroSlogen>
             </HeroItem>
           </HeroRow>
         </HeroContainer>
       </Hero>
-      <About>
+      <About id="about">
         <AboutContainer>
           <AboutArea>
             <AboutMiddle>
-              <AboutPic src={pizzaImage} />
+              <AboutPic
+                as={motion.img}
+                src={pizzaImage}
+                initial={{ x: "-50vw" }}
+                animate={{ x: "0vw" }}
+                transition={{ delay: 3, duration: 3 }}
+              />
             </AboutMiddle>
             <AboutTextContainer>
-              <AboutText>
+              <AboutText
+                as={motion.div}
+                initial={{ x: "50vw" }}
+                animate={{ x: "-5vw" }}
+                transition={{ delay: 3, duration: 3 }}
+              >
                 <h3>
-                  <span>We</span> create asdasd...
+                  <span>Lorem</span> ipsum dolor sit...
                 </h3>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
@@ -121,7 +145,7 @@ useEffect(() => {
           </AboutArea>
         </AboutContainer>
       </About>
-      <Food>
+      <Food id="menu">
         <FoodContainer>
           <FoodMenu>
             <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h1>
@@ -137,23 +161,38 @@ useEffect(() => {
               <button>sit</button>
             </FoodCategory>
             <FoodItemWrap>
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
-              <FoodItem img={veggie} name="Veggie" price="1800ft" />
+              <FoodItem img={pizza3} name="Veggie" price="1600ft" />
+              <FoodItem img={pizza4} name="Pepperoni" price="1800ft" />
+              <FoodItem img={pizza5} name="Italian" price="1900ft" />
+              <FoodItem img={pizza1} name="Salami" price="1700ft" />
             </FoodItemWrap>
           </FoodMenu>
         </FoodContainer>
       </Food>
-      <Review>
+      <Review id="review">
         <ReviewContainer>
           <ReviewSection>
-            <ReviewItem image={person2} name="lorem" />
-            <ReviewItem image={person1} name="ipsum" />
-            <ReviewItem image={person3} name="dolor" />
+            <ReviewTabs
+              image={person2}
+              name="lorem"
+              initial={{ x: "-60vw" }}
+              animate={{ x: "0vw" }}
+              transition={{ delay: 0, duration: 2 }}
+            />
+            <ReviewTabs
+              image={person1}
+              name="ipsum"
+              initial={{ x: "-60vw" }}
+              animate={{ scale: 2 }}
+              transition={{ delay: 0, duration: 2 }}
+            />
+            <ReviewTabs
+              image={person3}
+              name="dolor"
+              initial={{ x: "-60vw" }}
+              animate={{ x: "0vw" }}
+              transition={{ delay: 0, duration: 2 }}
+            />
           </ReviewSection>
         </ReviewContainer>
       </Review>
@@ -198,19 +237,39 @@ useEffect(() => {
             </FooterSection3>
           </FooterRow>
         </FooterContainer>
-        <BackToHomeButton href="#home" style={{display:bckBtn ? "flex" : "none"}}>
-        <i className="bx bxs-to-top"></i>
-      </BackToHomeButton >
+        <BackToHomeButton
+          onClick={toTheTop}
+          style={{ display: backBtn ? "flex" : "none" }}
+        >
+          <i className="bx bxs-to-top"></i>
+        </BackToHomeButton>
       </Footer>
-   
     </div>
   );
 }
 
 export default App;
 
+const Nav = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: #f0f3f7;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+`;
+const Logo = styled.div`
+  color: ${root.primarycolor};
+  font-weight: 800;
+  font-size: 2rem;
+`;
 
-
+const Menu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const MenuWrapper = styled.div`
   max-width: 1366px;
   margin: auto;
@@ -219,16 +278,7 @@ const MenuWrapper = styled.div`
   justify-content: space-between;
   padding: 1rem;
 `;
-const Logo = styled.div`
-  color: ${root.primarycolor};
-  font-weight: 800;
-  font-size: 2rem;
-`;
-const Menu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+
 const MenuItem = styled.div`
   margin-left: 1rem;
   padding: 0.5rem 1.5rem;
@@ -261,15 +311,6 @@ const CartBtn = styled.div`
     border-radius: 1rem;
     color: ${root.white};
   }
-`;
-const Nav = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 99;
-  background-color: #f0f3f7;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 const Hero = styled.section`
@@ -353,7 +394,6 @@ const AboutText = styled.div`
   background-color: ${root.white};
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-  transform: translateX(-10rem);
 
   h3 {
     font-size: 2rem;
@@ -362,7 +402,7 @@ const AboutText = styled.div`
   }
 
   span {
-    color: blue;
+    color: #d64541;
   }
 `;
 
@@ -386,10 +426,12 @@ const FoodMenu = styled.div`
 
   h1 {
     color: ${root.gray};
+    text-align: center;
   }
 
   p {
     margin: 2rem 0;
+    text-align: center;
   }
 `;
 const FoodCategory = styled.div`
@@ -434,9 +476,12 @@ const ReviewSection = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 5rem;
+  height: 100%;
 `;
 
 const Footer = styled.section`
+  display: flex;
+  align-items: center;
   background-image: url(${footerbg});
   background-position: center;
   background-size: cover;
@@ -446,8 +491,6 @@ const Footer = styled.section`
   h1 {
     color: ${root.primarycolor};
   }
-  align-items: center;
-  display: flex;
 `;
 const FooterContainer = styled.div`
   ${containerCss};
@@ -494,21 +537,17 @@ const InputGroup = styled.div`
   }
 `;
 
-const BackToHomeButton = styled.a`
-
-position: fixed;
-    bottom: 70px;
-    right: 70px;
-    border-radius: 10px;
-    background-color: ${root.primarycolor};
-    color: ${root.white};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    padding: .5rem;
-    z-index: 99;
-    
- 
-  
+const BackToHomeButton = styled.div`
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  border-radius: 10px;
+  background-color: ${root.primarycolor};
+  color: ${root.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  padding: 0.5rem;
+  z-index: 99;
 `;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const root = {
-  primarycolor: "#0F9D58",
+  primarycolor: "#d91e18",
   backgroundcolor: "#f0f3f7",
   secondarycolor: "#9da2ad",
   gray: "#7a7a7b",
@@ -52,11 +52,12 @@ const ItemImg = styled.img`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  object-fit:scale-down;
   transition: 0.5s ease-in-out;
   border-radius: 2rem;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   transition: 1.1s ease-in-out;
   &:hover {
