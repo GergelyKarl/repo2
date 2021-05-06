@@ -3,15 +3,12 @@ import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
+import { data } from "./data";
 import FoodItem from "./components/FoodItem";
 import ReviewTabs from "./components/ReviewTabs";
 import bgImage from "./images/bg.jpg";
 import pizzaImage from "./images/pizz.jpg";
-import pizza1 from "./images/pizza1.jpg";
 import pizza2 from "./images/pizza2.jpg";
-import pizza3 from "./images/pizza3.jpg";
-import pizza4 from "./images/pizza4.jpg";
-import pizza5 from "./images/pizza5.jpg";
 import person1 from "./images/review1.jpg";
 import person2 from "./images/review2.jpg";
 import person3 from "./images/review3.jpg";
@@ -39,6 +36,7 @@ const containerCss = css`
 
 function App() {
   const [backBtn, setBackBtn] = useState(false);
+  const [pizza, setPizza] = useState(data);
 
   const changeNav = () => {
     if (window.scrollY >= 700) {
@@ -54,6 +52,18 @@ function App() {
 
   const toTheTop = () => {
     scroll.scrollToTop();
+  };
+
+  const handleButtons = (e) => {
+    let filteredArray = [];
+    if (e.target.value === "All") {
+      filteredArray = data;
+    } else {
+      filteredArray = data.filter((item) => e.target.value === item.name);
+      console.log(filteredArray);
+    }
+
+    setPizza(filteredArray);
   };
 
   return (
@@ -154,17 +164,36 @@ function App() {
               architecto aliquam reprehenderit temporibus officiis ullam.
             </p>
             <FoodCategory>
-              <button>all</button>
-              <button>lorem</button>
-              <button>ipsum</button>
-              <button>dolor</button>
-              <button>sit</button>
+              <button value="All" onClick={handleButtons}>
+                all
+              </button>
+              <button value="Italy" onClick={handleButtons}>
+               Italy
+              </button>
+              <button value="Pepperoni" onClick={handleButtons}>
+                Pepperoni
+              </button>
+              <button value="Veggie" onClick={handleButtons}>
+                Veggie
+              </button>
+              <button value="Salami" onClick={handleButtons}>
+                Salami
+              </button>
             </FoodCategory>
             <FoodItemWrap>
-              <FoodItem img={pizza3} name="Veggie" price="1600ft" />
+              {/* <FoodItem img={pizza3} name="Veggie" price="1600ft" />
               <FoodItem img={pizza4} name="Pepperoni" price="1800ft" />
               <FoodItem img={pizza5} name="Italian" price="1900ft" />
-              <FoodItem img={pizza1} name="Salami" price="1700ft" />
+              <FoodItem img={pizza1} name="Salami" price="1700ft" /> */}
+
+              {pizza.map((item) => (
+                <FoodItem
+                  key={item.id}
+                  name={item.name}
+                  img={item.image}
+                  price={item.price}
+                />
+              ))}
             </FoodItemWrap>
           </FoodMenu>
         </FoodContainer>
