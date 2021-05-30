@@ -8,15 +8,19 @@ import java.util.List;
 
 @Repository
 public class TodoRepository {
+    private Long idCounter=0L;
     private List<TodoItem> todoItems = new ArrayList<>();
 
     public List<TodoItem> fetchAllTodoItems() {
         if (todoItems.size() == 0) {
             TodoItem item1 = new TodoItem();
             item1.setDone(false);
-            item1.setId(3234L);
+            item1.setId(idCounter++);
             item1.setTask("Todo 1");
+
+            todoItems.add(item1);
         }
+
 
         return todoItems;
     }
