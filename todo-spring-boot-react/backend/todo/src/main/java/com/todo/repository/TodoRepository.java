@@ -14,7 +14,7 @@ public class TodoRepository {
     public List<TodoItem> fetchAllTodoItems() {
         if (todoItems.size() == 0) {
             TodoItem item1 = new TodoItem();
-            item1.setDone(false);
+            item1.setDone(true);
             item1.setId(idCounter++);
             item1.setTask("Todo 1");
 

@@ -10,20 +10,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
     @Autowired
     private TodoService todoService;
 
     @GetMapping("/api/todoitems")
-    @CrossOrigin(origins = "http://localhost:3000",methods = {RequestMethod.GET})
     public ResponseEntity<?> fetchAllTodoItems() {
         List<TodoItem> todoItems = todoService.fetchAllTodoItems();
         return ResponseEntity.status(HttpStatus.OK).body(todoItems);
     }
+
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         return "TESZT";
     }
 
+    @PutMapping("/api/todoitems/{id}")
+    public ResponseEntity<?> updateTodoItem( @PathVariable Integer id, @RequestBody TodoItem body ) {
+        TodoItem updatedTodoItem = todoService.updateTodoItem(id, body);
+
+        return ResponseEntity.ok(updatedTodoItem);
+    }
 
 }

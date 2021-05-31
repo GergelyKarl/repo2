@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import TodoItem from "./components/TodoItem"
 function App() {
+  const [todoItems, setTodoItems] = useState(null);
+
+  useEffect(() => {
+    if (!todoItems) {
+      fetch("http://localhost:8080/api/todoitems")
+        .then((res) => res.json())
+        .then((data) => {
+          setTodoItems(data);
+        });
+    }
+  }, [todoItems]);
+
+  console.log(todoItems);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {todoItems
+        ? todoItems.map((item) => (
+           <TodoItem key={item.id} item={item} />
+          ))
+        : "loading"}
     </div>
   );
 }
