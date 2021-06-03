@@ -33,4 +33,13 @@ public class TodoController {
         return ResponseEntity.ok(updatedTodoItem);
     }
 
+    @PostMapping("/api/todoitems")
+    public ResponseEntity<?> createNewTodoItem(@RequestBody TodoItem item){
+
+       TodoItem todoItem=todoService.createTodoItem();
+return ResponseEntity.ok(todoItem);
+
+
+    }
+
 }
