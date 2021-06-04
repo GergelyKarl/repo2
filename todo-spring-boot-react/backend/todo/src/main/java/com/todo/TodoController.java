@@ -21,10 +21,6 @@ public class TodoController {
         return ResponseEntity.status(HttpStatus.OK).body(todoItems);
     }
 
-    @RequestMapping("/test")
-    public String test() {
-        return "TESZT";
-    }
 
     @PutMapping("/api/todoitems/{id}")
     public ResponseEntity<?> updateTodoItem( @PathVariable Integer id, @RequestBody TodoItem body ) {
@@ -34,12 +30,23 @@ public class TodoController {
     }
 
     @PostMapping("/api/todoitems")
-    public ResponseEntity<?> createNewTodoItem(@RequestBody TodoItem item){
+    public ResponseEntity<?> createNewTodoItem( @RequestBody TodoItem item ) {
 
-       TodoItem todoItem=todoService.createTodoItem();
-return ResponseEntity.ok(todoItem);
+        TodoItem todoItem = todoService.createTodoItem();
+
+        return ResponseEntity.status(HttpStatus.OK).body(todoItem);
 
 
     }
+
+    @DeleteMapping("/api/todoitems/{id}")
+    public ResponseEntity<?> deleteTodoItem( @PathVariable Integer id ) {
+
+        todoService.deleteTodoItem(id);
+
+        return ResponseEntity.ok("ok");
+
+    }
+
 
 }

@@ -35,10 +35,15 @@ public class TodoService {
         TodoItem todoItem = new TodoItem();
         todoItem.setDone(false);
         todoItem = todoRepo.save(todoItem);
-        todoItem.setTask("Task #"+ todoItem.getId());
+        todoItem.setTask("Task #" + todoItem.getId());
 
 
         return todoItem;
+    }
+
+    public void deleteTodoItem( Integer id ) {
+        todoRepo.delete(id);
+
     }
 
 }

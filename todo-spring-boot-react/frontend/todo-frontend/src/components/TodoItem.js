@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const TodoItem = ({ item }) => {
+const TodoItem = ({ item, emitDeleteTodoItem }) => {
   const [todoItem, setTodoItem] = useState(item);
   const [isModified, setIsModified] = useState(false);
 
@@ -10,9 +10,17 @@ const TodoItem = ({ item }) => {
   };
 
   const updateTask = (e) => {
-    setIsModified(true)
+    setIsModified(true);
     setTodoItem({ ...todoItem, task: e.target.value });
-    
+  };
+
+  const deleteItem = () => {
+    fetch(`http://localhost:8080/api/todoitems/${todoItem.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => emitDeleteTodoItem(todoItem));
   };
 
   useEffect(() => {
@@ -20,8 +28,7 @@ const TodoItem = ({ item }) => {
       fetch(`http://localhost:8080/api/todoitems/${todoItem.id}`, {
         method: "PUT",
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(todoItem),
       })
@@ -41,7 +48,12 @@ const TodoItem = ({ item }) => {
         checked={todoItem.done}
         onChange={updateCheckBox}
       />
-      <input type="text" value={todoItem.task} onChange={updateTask} />
+      {todoItem.done ? (
+        <span style={{ textDecoration: "line-through" }}>{todoItem.task}</span>
+      ) : (
+        <input type="text" value={todoItem.task} onChange={updateTask} />
+      )}
+      {<span onClick={deleteItem}>🗑️</span>}
     </div>
   );
 };
