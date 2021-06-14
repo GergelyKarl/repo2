@@ -2,13 +2,10 @@ require("./db/connect");
 const express = require("express");
 const app = express();
 const routes = require("./routes/routes");
+
 //middleware
-
 app.use(express.json());
-
-app.get("/test", (req, res) => {
-  res.send("fasza");
-});
+app.use(express.static("./public"));
 
 app.use("/api/v1/todos", routes);
 

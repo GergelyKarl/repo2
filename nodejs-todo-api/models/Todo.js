@@ -5,12 +5,11 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: [true, "must provide name"],
     trim: true,
-    maxlenght: [20, "name cannot be more than 20 char"],
+    maxlength: [20, "name cannot be more than 20 char"],
   },
   completed: {
-      type:Boolean,
-      default:false,
-      
+    type: Boolean,
+    default: false,
   },
 });
 
