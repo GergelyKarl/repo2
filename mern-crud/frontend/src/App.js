@@ -25,7 +25,7 @@ useEffect(() => {
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container justify="space-between" alignItems="stretch" spacing>
+          <Grid container justify="space-between" alignItems="stretch" >
             <Grid item xs={12} sm={7}>
               <Post />
             </Grid>
