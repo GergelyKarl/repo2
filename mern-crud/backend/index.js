@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 const connectString =
-  "mongodb+srv://admin:qweqweqwe@cluster0.bv6dt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv:/****************************************************************************;
 
 mongoose
   .connect(connectString, {
