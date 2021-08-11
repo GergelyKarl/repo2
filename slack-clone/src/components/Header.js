@@ -34,6 +34,7 @@ const HeaderContainer = styled.div`
   padding: 10px 0;
   background-color: var(--slack-color);
   color: white;
+  
 `;
 const HeaderSearch = styled.div`
   flex: 0.4;
