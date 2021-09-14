@@ -37,7 +37,7 @@
       <li class="nav-item">
         <a
           class="nav-link"
-          (click)="openModal(null, 'add')"
+          (click)="onOpenModal(null, 'add')"
           aria-current="page"
           href="#"
           >Add Employee</a
@@ -91,6 +91,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Edit"
+              (click)="onOpenModal(employee, 'edit')"
               ><i class="fa fa-pencil"></i>
             </a>
             <a
@@ -99,6 +100,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Delete"
+              (click)="onOpenModal(employee, 'delete')"
               ><i class="fa fa-times"></i
             ></a>
           </div>
@@ -173,6 +175,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Edit"
+              (click)="onOpenModal(employee, 'edit')"
               ><i class="fa fa-pencil"></i>
             </a>
             <a
@@ -181,6 +184,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Delete"
+              (click)="onOpenModal(employee, 'delete')"
               ><i class="fa fa-times"></i
             ></a>
           </div>
@@ -337,7 +341,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Edit"
-              (click)="openModal(employee, 'edit')"
+             
             >
               <i class="fa fa-pencil"></i>
             </a>
@@ -347,7 +351,7 @@
               data-placement="top"
               data-toggle="tooltip"
               data-original-title="Delete"
-              (click)="openModal(employee, 'delete')"
+           
               ><i class="fa fa-times"></i
             ></a>
           </div>
@@ -438,6 +442,7 @@
               id="email"
               placeholder="Email"
               required
+              
             />
           </div>
 
