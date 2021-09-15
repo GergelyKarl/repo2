@@ -10,7 +10,9 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+
   public employees!: Employee[];
+  public editEmployee!: Employee | null;
   constructor(private employeeService: EmployeeService) {}
   ngOnInit(): void {
     this.getEmployees();
@@ -28,21 +30,31 @@ export class AppComponent implements OnInit {
     );
   }
 
-
-  public onAddEmloyee(addFrorm:NgForm):void{
-this.employeeService.addEmployee(addFrorm.value).subscribe(
-  (response : Employee)=>{
-    console.log(response);
-    this.getEmployees()
-    
-  },
-  (error:HttpErrorResponse)=>{
-    alert(error.message)
+  public onAddEmployee(addFrorm: NgForm): void {
+    document.getElementById('add-employee-form')?.click();
+    this.employeeService.addEmployee(addFrorm.value).subscribe(
+      (response: Employee) => {
+        console.log(response);
+        this.getEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
-)
+  public onUpdateEmployee(employee: Employee): void {
+    this.employeeService.updateEmployee(employee).subscribe(
+      (response: Employee) => {
+        console.log(response);
+        this.getEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
-  public onOpenModal(employee: Employee | null , mode: string): void {
+  public onOpenModal(employee: Employee | null, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -52,6 +64,7 @@ this.employeeService.addEmployee(addFrorm.value).subscribe(
       button.setAttribute('data-target', '#addEmployeeModal');
     }
     if (mode === 'edit') {
+      this.editEmployee= employee;
       button.setAttribute('data-target', '#updateEmployeeModal');
     }
     if (mode === 'delete') {
