@@ -1,0 +1,47 @@
+.title {
+  width: 100vw;
+  height: 30vh;
+  background-color: rgba(242, 38, 19, 1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.title > h1 {
+  color: aliceblue;
+  margin-bottom: 20px;
+}
+
+.input__wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input__wrapper > input {
+  border: 3px solid rgba(242, 38, 19, 1);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.input__wrapper > input:focus {
+  outline: none;
+}
+
+.input__wrapper > button {
+  background-color: rgba(242, 38, 19, 1);
+  color: white;
+  padding: 8px 15px;
+  margin-left: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 40px;
+}
+
+.result > div {
+    padding: 8px 15px;
+    border: 1px solid black;
+    display: inline-block;
+}
