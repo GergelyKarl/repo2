@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./app.css";
+import Kerdesek from "./components/Kerdesek";
 
 function App() {
+  const [kNumber, setKumber] = useState(1);
+
   const piramis = [
     { id: 1, nyeremeny: "5000 Ft" },
     { id: 2, nyeremeny: "10000 Ft" },
@@ -22,13 +25,24 @@ function App() {
 
   return (
     <div className="App">
-      <div className="main">dfg</div>
+      <div className="main">
+        <div className="top">
+          <div className="timer">30</div>
+        </div>
+        <div className="bottom">
+          <Kerdesek />
+        </div>
+      </div>
       <div className="piramis">
         <ul className="nyeremeny__lista">
           {piramis.map((item) => (
             <li
               key={item.id}
-              className="nyeremeny "
+              className={
+                item.id === kNumber
+                  ? "nyeremeny active"
+                  : "nyeremeny"
+              }
             >
               <span className="nyeremeny__sorszam">
                 {item.id}

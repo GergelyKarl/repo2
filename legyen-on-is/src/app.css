@@ -12,6 +12,68 @@
       #020230
     ),
     url("./assets/bg2.png") center no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  height: 60%;
+  position: relative;
+}
+.timer {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+}
+
+.bottom {
+  height: 40%;
+
+}
+
+.kerdesek {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.kerdes {
+  width: 80%;
+  background-color: black;
+  border: 2px solid white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.valaszok {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.valasz {
+  width: 40%;
+  border: 1px solid white;
+  background-color: black;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  margin: 8px;
+cursor: pointer;
 }
 
 .piramis {
@@ -21,31 +83,29 @@
   align-items: center;
 }
 
-.nyeremeny__lista{
-list-style: none;
-width: 100%;
-padding: 20px;
+.nyeremeny__lista {
+  list-style: none;
+  width: 100%;
+  padding: 20px;
 }
 
-.nyeremeny{
+.nyeremeny {
   display: flex;
   align-items: center;
   padding: 5px;
   border-radius: 5px;
-
 }
-.nyeremeny.active{
-    background-color: teal
-}
-
-.nyeremeny__sorszam{
-    font-size: 18px;
-    font-weight: 100;
-    width: 50%;
+.nyeremeny.active {
+  background-color: teal;
 }
 
-.nyeremeny__osszeg{
-    font-size: 20px;
-    font-weight: 400;
+.nyeremeny__sorszam {
+  font-size: 18px;
+  font-weight: 100;
+  width: 50%;
+}
 
+.nyeremeny__osszeg {
+  font-size: 20px;
+  font-weight: 400;
 }
