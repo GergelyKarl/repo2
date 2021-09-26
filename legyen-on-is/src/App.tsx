@@ -3,8 +3,22 @@ import "./app.css";
 import Kerdesek from "./components/Kerdesek";
 
 function App() {
-  const [kNumber, setKumber] = useState(1);
-
+  const [kNumber, setKNumber] = useState(1);
+  const [visszaSzamlalo, setVisszaSzamlalo] =
+    useState(30);
+  const kerdesekTomb = [
+    {
+      id: 1,
+      kerdes:
+        "Mikor volt az 1848-as szabadságharc",
+      valasz: [
+        { szoveg: "1849", helyes: false },
+        { szoveg: "1847", helyes: false },
+        { szoveg: "1848", helyes: true },
+        { szoveg: "1850", helyes: false },
+      ],
+    },
+  ];
   const piramis = [
     { id: 1, nyeremeny: "5000 Ft" },
     { id: 2, nyeremeny: "10000 Ft" },
@@ -30,7 +44,12 @@ function App() {
           <div className="timer">30</div>
         </div>
         <div className="bottom">
-          <Kerdesek />
+          <Kerdesek
+            kerdesekTomb={kerdesekTomb}
+            visszaSzamalalo={setVisszaSzamlalo}
+            kNumber={kNumber}
+            setKNumber={setKNumber}
+          />
         </div>
       </div>
       <div className="piramis">

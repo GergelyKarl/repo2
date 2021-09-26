@@ -37,7 +37,6 @@
 
 .bottom {
   height: 40%;
-
 }
 
 .kerdesek {
@@ -72,8 +71,56 @@
   padding: 15px;
   text-align: center;
   font-size: 20px;
-  margin: 8px;
-cursor: pointer;
+  margin: 0 10px 20px 10px;
+  cursor: pointer;
+}
+
+.valasz:hover,
+.valasz.active {
+  background: orange;
+}
+
+.valasz.helyes {
+  animation: helyes 3s ease forwards;
+}
+.valasz.helytelen {
+  animation: helytelen 3s ease forwards;
+}
+
+@keyframes helyes {
+  0%,
+  23%,
+  49% {
+    background-color: orange;
+  }
+
+  20%,
+  44%,
+  68% {
+    background-color: black;
+  }
+  72%,
+  100% {
+    background-color: green;
+  }
+}
+
+@keyframes helytelen {
+  0%,
+  23%,
+  49% {
+    background-color: orange;
+  }
+
+  20%,
+  44%,
+  68% {
+    background-color: black;
+  }
+  72%,
+  100% {
+    background-color: crimson;
+  }
 }
 
 .piramis {
