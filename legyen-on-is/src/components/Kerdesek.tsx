@@ -8,12 +8,42 @@ export default function Kerdesek({
   visszaSzamalalo,
   kNumber,
   setKNumber,
+  setVisszaSzamlalo,
 }) {
   const [kerdesek, setKerdesek] = useState(null);
-
+  const [kivalasztott, setKivalasztott] =
+    useState();
+  const [className, setClassName] =
+    useState("valasz");
   useEffect(() => {
     setKerdesek(kerdesekTomb[kNumber - 1]);
   }, [kerdesekTomb, kerdesek, kNumber]);
+
+  const delay = (timeout, callback) => {
+    setTimeout(() => callback(), timeout);
+  };
+
+  const handleClick = (valasz) => {
+    setKivalasztott(valasz);
+    setClassName("valasz active");
+    delay(2000, () =>
+      setClassName(
+        valasz.helyes
+          ? "valasz helyes"
+          : "valasz helytelen"
+      )
+    );
+
+    delay(3000, () => {
+      if (valasz.helyes) {
+        setKNumber((number) => number + 1);
+      } else {
+        setVisszaSzamlalo(true);
+        setKivalasztott(null)
+      }
+    });
+  };
+  console.log(kivalasztott);
 
   return (
     <div className="kerdesek">
@@ -22,7 +52,14 @@ export default function Kerdesek({
       </div>
       <div className="valaszok">
         {kerdesek?.valasz.map((valasz) => (
-          <div className="valasz">
+          <div
+            className={
+              kivalasztott === valasz
+                ? className
+                : "valasz"
+            }
+            onClick={() => handleClick(valasz)}
+          >
             {valasz?.szoveg}
           </div>
         ))}

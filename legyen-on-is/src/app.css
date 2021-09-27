@@ -81,10 +81,10 @@
 }
 
 .valasz.helyes {
-  animation: helyes 3s ease forwards;
+  animation: helyes 2s ease forwards;
 }
 .valasz.helytelen {
-  animation: helytelen 3s ease forwards;
+  animation: helytelen 2s ease forwards;
 }
 
 @keyframes helyes {
