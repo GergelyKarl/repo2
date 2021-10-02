@@ -7,10 +7,7 @@
 
 .main {
   width: 75%;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0),
-      #020230
-    ),
+  background: linear-gradient(rgba(0, 0, 0, 0), #020230),
     url("./assets/bg2.png") center no-repeat;
   display: flex;
   flex-direction: column;
@@ -89,17 +86,20 @@
 
 @keyframes helyes {
   0%,
-  23%,
-  49% {
+  20%,
+  40% {
     background-color: orange;
   }
 
-  20%,
-  44%,
-  68% {
+  21%,
+  48% {
     background-color: black;
   }
-  72%,
+  49%,
+  60%,
+  70%,
+  80%,
+  90%,
   100% {
     background-color: green;
   }
@@ -107,17 +107,20 @@
 
 @keyframes helytelen {
   0%,
-  23%,
-  49% {
+  20%,
+  40% {
     background-color: orange;
   }
 
-  20%,
-  44%,
-  68% {
+  21%,
+  48% {
     background-color: black;
   }
-  72%,
+  49%,
+  60%,
+  70%,
+  80%,
+  90%,
   100% {
     background-color: crimson;
   }
@@ -128,6 +131,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .nyeremeny__lista {
@@ -155,4 +159,42 @@
 .nyeremeny__osszeg {
   font-size: 20px;
   font-weight: 400;
+}
+
+.start {
+  width: 250px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.start__input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.start__input:focus {
+  outline: none;
+}
+
+.start__button {
+  width: 100%;
+  height: 30%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
 }

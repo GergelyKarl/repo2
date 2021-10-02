@@ -1,7 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-} from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Kerdesek({
   kerdesekTomb,
@@ -11,10 +8,9 @@ export default function Kerdesek({
   setVisszaSzamlalo,
 }) {
   const [kerdesek, setKerdesek] = useState(null);
-  const [kivalasztott, setKivalasztott] =
-    useState();
-  const [className, setClassName] =
-    useState("valasz");
+  const [kivalasztott, setKivalasztott] = useState(null);
+  const [className, setClassName] = useState("valasz");
+
   useEffect(() => {
     setKerdesek(kerdesekTomb[kNumber - 1]);
   }, [kerdesekTomb, kerdesek, kNumber]);
@@ -26,11 +22,9 @@ export default function Kerdesek({
   const handleClick = (valasz) => {
     setKivalasztott(valasz);
     setClassName("valasz active");
-    delay(2000, () =>
+    delay(1000, () =>
       setClassName(
-        valasz.helyes
-          ? "valasz helyes"
-          : "valasz helytelen"
+        valasz.helyes ? "valasz helyes" : "valasz helytelen"
       )
     );
 
@@ -39,24 +33,19 @@ export default function Kerdesek({
         setKNumber((number) => number + 1);
       } else {
         setVisszaSzamlalo(true);
-        setKivalasztott(null)
+        setKivalasztott(null);
       }
     });
   };
-  console.log(kivalasztott);
 
   return (
     <div className="kerdesek">
-      <div className="kerdes">
-        {kerdesek?.kerdes}
-      </div>
+      <div className="kerdes">{kerdesek?.kerdes}</div>
       <div className="valaszok">
         {kerdesek?.valasz.map((valasz) => (
           <div
             className={
-              kivalasztott === valasz
-                ? className
-                : "valasz"
+              kivalasztott === valasz ? className : "valasz"
             }
             onClick={() => handleClick(valasz)}
           >

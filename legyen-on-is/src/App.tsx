@@ -1,22 +1,20 @@
-import React, {
-  useState,
-  useEffect,
-  useMemo,
-} from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./app.css";
 import Kerdesek from "./components/Kerdesek";
+import Ora from "./components/Ora";
+import Start from "./components/Start";
 
 function App() {
+  const [username, setUsername] = useState(null);
   const [kNumber, setKNumber] = useState(1);
   const [visszaSzamlalo, setVisszaSzamlalo] =
     useState(false);
-  const [nyertOsszeg, setNyertOsszeg] =
-    useState("");
+  const [nyertOsszeg, setNyertOsszeg] = useState("");
+
   const kerdesekTomb = [
     {
       id: 1,
-      kerdes:
-        "Mikor volt az 1848-as szabadságharc",
+      kerdes: "Mikor volt az 1848-as szabadságharc",
       valasz: [
         { szoveg: "1849", helyes: false },
         { szoveg: "1847", helyes: false },
@@ -61,60 +59,86 @@ function App() {
   useEffect(() => {
     kNumber > 1 &&
       setNyertOsszeg(
-        piramis.find(
-          (nyer: any) => nyer.id === kNumber-1
-        ).nyeremeny
+        piramis.find((nyer: any) => nyer.id === kNumber - 1)
+          .nyeremeny
       );
   }, [kNumber, piramis]);
 
   return (
     <div className="App">
-      <div className="main">
-        {visszaSzamlalo ? (
-          <h1>Nyertél:{nyertOsszeg}</h1>
-        ) : (
-          <>
-            <div className="top">
-              <div className="timer">30</div>
-            </div>
-            <div className="bottom">
-              <Kerdesek
-                kerdesekTomb={kerdesekTomb}
-                visszaSzamalalo={
-                  setVisszaSzamlalo
-                }
-                kNumber={kNumber}
-                setKNumber={setKNumber}
-                setVisszaSzamlalo={
-                  setVisszaSzamlalo
-                }
-              />
-            </div>
-          </>
-        )}
-      </div>
-      <div className="piramis">
-        <ul className="nyeremeny__lista">
-          {piramis.map((item) => (
-            <li
-              key={item.id}
-              className={
-                item.id === kNumber
-                  ? "nyeremeny active"
-                  : "nyeremeny"
-              }
+      {username ? (
+        <>
+          <div className="main">
+            {visszaSzamlalo ? (
+              <>
+                <h1
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "30%",
+                  }}
+                >
+                  Nyeremény:{" "}
+                  {nyertOsszeg ? nyertOsszeg : "0 FT"}{" "}
+                </h1>
+              </>
+            ) : (
+              <>
+                <div className="top">
+                  <div className="timer">
+                    <Ora
+                      setVisszaSzamlalo={setVisszaSzamlalo}
+                      kNumber={kNumber}
+                    />
+                  </div>
+                </div>
+                <div className="bottom">
+                  <Kerdesek
+                    kerdesekTomb={kerdesekTomb}
+                    visszaSzamalalo={setVisszaSzamlalo}
+                    kNumber={kNumber}
+                    setKNumber={setKNumber}
+                    setVisszaSzamlalo={setVisszaSzamlalo}
+                  />
+                </div>
+              </>
+            )}
+          </div>
+          <div className="piramis">
+            <h1
+              style={{
+                position: "absolute",
+                top: "10%",
+                left: "30%",
+              }}
             >
-              <span className="nyeremeny__sorszam">
-                {item.id}
-              </span>
+              Üdv : {username}
+            </h1>
+            <ul className="nyeremeny__lista">
+              {piramis.map((item) => (
+                <li
+                  key={item.id}
+                  className={
+                    item.id === kNumber
+                      ? "nyeremeny active"
+                      : "nyeremeny"
+                  }
+                >
+                  <span className="nyeremeny__sorszam">
+                    {item.id}
+                  </span>
 
-              <span className="nyeremeny__osszeg">
-                {item.nyeremeny}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+                  <span className="nyeremeny__osszeg">
+                    {item.nyeremeny}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
+        <Start setUsername={setUsername} />
+      )}
     </div>
   );
 }
